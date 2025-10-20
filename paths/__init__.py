@@ -9,3 +9,9 @@ __all__ = [
     'DATA_PATH',
     'OUTPUT_PATH'
 ]
+
+
+if __name__ == '__main__':
+    print(f"Config file location: {Path(__file__)}")
+    print(f"PROJECT_ROOT points to: {PROJECT_ROOT.resolve()}")
+    print(f"PROJECT_ROOT contents: {list(PROJECT_ROOT.iterdir())}")

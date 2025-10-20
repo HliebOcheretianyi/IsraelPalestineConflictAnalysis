@@ -10,10 +10,10 @@ import traceback
 from paths import *
 
 # put the path to the input file, or a folder of files to process all of
-input_file = f"{DATA_PATH}/comments/RC_2023-08.zst"
+input_file = f"{DATA_PATH}/comments/"
 
 # put the name or path to the output file. The file extension from below will be added automatically. If the input file is a folder, the output will be treated as a folder as well
-output_file = f"{OUTPUT_PATH}/comments/RC_2023-08"
+output_file = f"{OUTPUT_PATH}/comments/"
 
 # the format to output in, pick from the following options
 #   zst: same as the input, a zstandard compressed ndjson file. Can be read by the other scripts in the repo
@@ -36,7 +36,17 @@ to_date = datetime.strptime("2030-12-31", "%Y-%m-%d")
 
 # FILTER 1: Include only these subreddits
 field1 = "subreddit"
-values1 = ["Israel", "Palestine"]
+values1 = [
+    "Palestine",
+    "palestinenews",
+    "Israel",
+    "IsraelPalestine",
+    "IsraelCrimes",
+    "israelexposed",
+    "Lebanon",
+    "worldnews",
+    "AskMiddleEast"
+]
 exact_match1 = True
 inverse1 = False
 
@@ -220,7 +230,7 @@ def process_file(input_file, output_file, output_format, field1, values1, exact_
                     ["author", "subreddit", "title", "num_comments", "score", "over_18", "created", "link", "text",
                      "url"])
             else:
-                writer.writerow(["author", "subreddit", "score", "created", "link", "body"])
+                writer.writerow(["author", "subreddit",'controversiality', "score", "created", "link", "body"])
     else:
         log.error(f"Unsupported output format {output_format}")
         sys.exit()
