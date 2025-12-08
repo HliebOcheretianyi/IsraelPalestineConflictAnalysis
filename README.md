@@ -33,5 +33,6 @@ Execute the Jupyter notebooks in the `notebooks/` folder in this exact order:
   * `reddit_processed/` - Where your downloaded input data goes.
   * `data_extraction/` - Scripts to process raw AcademicTorrents data (optional, for manual filtering).
   * `paths/` - Utility package for file management.
+  * `requirements.txt/`: Lists all required Python packages for dependency management.
 
 **Authors:** Team \#3 (Sukhodolskyi Dmytro & Ocheretianyi Hlieb) — *NaUKMA*
